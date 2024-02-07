@@ -9,6 +9,7 @@ const messages = [
 export default function App() {
     // const step = 1;
     const [step, setStep] = useState(1);
+    // const [test, setTest] = useState({ name: "Cezar", age: 27 });
 
     // const arr = useState(1);
     // console.log(arr);
@@ -16,11 +17,18 @@ export default function App() {
     function handlePrev() {
         // console.log("Prev");
         step <= 1 ? setStep(1) : setStep(step - 1);
+
+        //! BAD PRACTICE
+        // test.name = "Luca";
+        // CORRECT WAY:
+        // setTest({ name: "Luca" });
     }
 
     function handleNext() {
         // console.log("Next");
         step >= 3 ? setStep(3) : setStep(step + 1);
+
+        // test.name = "Zoe";
     }
 
     return (
@@ -33,6 +41,7 @@ export default function App() {
 
             <p className="message">
                 Step {step}: {messages[step - 1]}
+                {/* {test.name} */}
             </p>
 
             <div className="buttons">
