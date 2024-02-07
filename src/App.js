@@ -16,11 +16,19 @@ export default function App() {
 
     function handleNext() {
         step >= 3 ? setStep(3) : setStep(step + 1);
+        // Good practice is using a callback function to update the state based on the previous state, like so:
+        // if (step < 3) {
+        //     setStep((s) => s + 1);
+        //     setStep((s) => s + 1);
+        // }
     }
 
     return (
         <>
-            <button className="close" onClick={() => setIsOpen(!isOpen)}>
+            <button
+                className="close"
+                onClick={() => setIsOpen((isOp) => !isOp)}
+            >
                 &times;
             </button>
             {isOpen && (
