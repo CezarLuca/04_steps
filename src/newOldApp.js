@@ -10,6 +10,7 @@ export default function App() {
     return (
         <div>
             <Steps />
+            <Steps />
         </div>
     );
 }
@@ -51,45 +52,27 @@ function Steps() {
                     </p>
 
                     <div className="buttons">
-                        <Button
-                            textColor={"#fff"}
-                            backgroundColor={"#7950f2"}
+                        <button
+                            style={{
+                                backgroundColor: "#7950f2",
+                                color: "#fff",
+                            }}
                             onClick={handlePrev}
-                            text={"Prev"}
-                            emote={"⬅️"}
-                        />
-                        <Button
-                            textColor={"#fff"}
-                            backgroundColor={"#7950f2"}
+                        >
+                            Prev
+                        </button>
+                        <button
+                            style={{
+                                backgroundColor: "#7950f2",
+                                color: "#fff",
+                            }}
                             onClick={handleNext}
-                            text={"Next"}
-                            emote={"➡️"}
-                        />
+                        >
+                            Next
+                        </button>
                     </div>
                 </div>
             )}
         </div>
-    );
-}
-
-function Button({ textColor, backgroundColor, onClick, text, emote }) {
-    return (
-        <button
-            style={{
-                backgroundColor: backgroundColor,
-                color: textColor,
-            }}
-            onClick={onClick}
-        >
-            {text === "Prev" ? (
-                <>
-                    <span>{emote}</span> {text}
-                </>
-            ) : (
-                <>
-                    {text} <span>{emote}</span>
-                </>
-            )}
-        </button>
     );
 }
