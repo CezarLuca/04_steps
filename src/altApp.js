@@ -55,16 +55,16 @@ function Steps() {
                             textColor={"#fff"}
                             backgroundColor={"#7950f2"}
                             onClick={handlePrev}
-                        >
-                            <span>⬅️</span> Prev
-                        </Button>
+                            text={"Prev"}
+                            emote={"⬅️"}
+                        />
                         <Button
                             textColor={"#fff"}
                             backgroundColor={"#7950f2"}
                             onClick={handleNext}
-                        >
-                            Next <span>➡️</span>
-                        </Button>
+                            text={"Next"}
+                            emote={"➡️"}
+                        />
                     </div>
                 </div>
             )}
@@ -72,7 +72,7 @@ function Steps() {
     );
 }
 
-function Button({ textColor, backgroundColor, onClick, children }) {
+function Button({ textColor, backgroundColor, onClick, text, emote }) {
     return (
         <button
             style={{
@@ -81,7 +81,15 @@ function Button({ textColor, backgroundColor, onClick, children }) {
             }}
             onClick={onClick}
         >
-            {children}
+            {text === "Prev" ? (
+                <>
+                    <span>{emote}</span> {text}
+                </>
+            ) : (
+                <>
+                    {text} <span>{emote}</span>
+                </>
+            )}
         </button>
     );
 }
